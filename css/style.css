@@ -176,7 +176,7 @@ fieldset {
   margin: 30px auto auto auto;
 }
 
-#contact-form {
+.contact .wrapper #contact-form {
   height: 100%;
   width: 500px;
 }
