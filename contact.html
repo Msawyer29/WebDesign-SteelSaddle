@@ -41,7 +41,7 @@
     <!-- CONTACT PAGE-->
     <section class="message clearfix">
       <div class="wrapper">
-        <form>
+        <form id="contact-form">
           <fieldset id="contact-form">
           <legend>Have a question? Please write to us.</legend>
           <table>
@@ -90,6 +90,10 @@
               <input type="submit" id="submit_form" value="Submit" class="smallerbutton">
           </div>
 
+          <div id="success-message" style="display: none;">
+            Your message has been successfully submitted. Thank you!
+          </div>
+
         </form>
           
         <div id="business-inquiries">
@@ -133,6 +137,44 @@
 
       </div>
     </section>
+
+    <script>
+      const form = document.getElementById('contact-form');
+      const successMessage = document.getElementById('success-message');
+    
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+    
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+    
+        // Send email using a third-party email service like EmailJS (https://www.emailjs.com/)
+        const emailjsConfig = {
+          userId: 'Mackenzie', // EmailJS user ID
+          serviceId: 'service_qmg2j1r', // EmailJS service ID
+          templateId: 'template_knk5efq', // EmailJS template ID
+        };
+    
+        const emailParams = {
+          to_email: 'steelsaddle.ca@gmail.com',
+          from_name: name,
+          from_email: email,
+          subject: subject,
+          message: message,
+        };
+    
+        try {
+          await emailjs.send(emailjsConfig.serviceId, emailjsConfig.templateId, emailParams, emailjsConfig.userId);
+          successMessage.style.display = 'block';
+        } catch (error) {
+          console.error('Failed to send email:', error);
+          alert('Failed to send your message. Please try again later.');
+        }
+      });
+    </script>
+    
 
   </body>
 
