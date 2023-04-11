@@ -21,6 +21,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
   </head>
 
   <body>
@@ -42,9 +44,9 @@
     <section class="message clearfix">
       <div class="wrapper">
         <form id="contact-form">
-          <fieldset id="contact-form">
+          <fieldset id="contact-fieldset">
           <legend>Have a question? Please write to us.</legend>
-          <table>
+          <table class="contact-form-table">
               <tr>
                   <td>
                       <label for="name">Name*</label>
@@ -90,7 +92,7 @@
               <input type="submit" id="submit_form" value="Submit" class="smallerbutton">
           </div>
 
-          <div id="success-message" style="display: none;">
+          <div id="success-message">
             Your message has been successfully submitted. Thank you!
           </div>
 
@@ -139,6 +141,7 @@
     </section>
 
     <script>
+      emailjs.init('d370rbT0G6CDzrpDj');
       const form = document.getElementById('contact-form');
       const successMessage = document.getElementById('success-message');
     
@@ -152,7 +155,7 @@
     
         // Send email using a third-party email service like EmailJS (https://www.emailjs.com/)
         const emailjsConfig = {
-          userId: 'Mackenzie', // EmailJS user ID
+          userId: 'd370rbT0G6CDzrpDj', // EmailJS user ID/email
           serviceId: 'service_qmg2j1r', // EmailJS service ID
           templateId: 'template_knk5efq', // EmailJS template ID
         };

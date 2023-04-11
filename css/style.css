@@ -176,9 +176,31 @@ fieldset {
   margin: 30px auto auto auto;
 }
 
+#contact-fieldset {
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .contact .wrapper #contact-form {
   height: 100%;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 15px;
+}
+
+.contact-form-table {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form-table td {
+  padding: 5px;
+}
+
+#success-message {
+display: none;
 }
 
 legend {
